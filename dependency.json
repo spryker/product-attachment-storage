@@ -1,0 +1,7 @@
+{
+    "include": {
+        "spryker/event": "If you want to use Event plugins.",
+        "spryker/synchronization-behavior": "Provides synchronization behavior for Propel entities.",
+        "spryker/transfer": "Provides transfer objects definition with strict types."
+    }
+}
