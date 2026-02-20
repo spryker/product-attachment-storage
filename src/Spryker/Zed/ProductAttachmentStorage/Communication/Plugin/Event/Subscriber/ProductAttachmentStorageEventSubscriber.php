@@ -31,6 +31,7 @@ class ProductAttachmentStorageEventSubscriber extends AbstractPlugin implements 
         $this->addProductAttachmentProductAbstractCreateListener($eventCollection);
         $this->addProductAttachmentProductAbstractUpdateListener($eventCollection);
         $this->addProductAttachmentProductAbstractDeleteListener($eventCollection);
+        $this->addProductAttachmentPublishListener($eventCollection);
 
         return $eventCollection;
     }
@@ -39,6 +40,17 @@ class ProductAttachmentStorageEventSubscriber extends AbstractPlugin implements 
     {
         $eventCollection->addListenerQueued(
             ProductAttachmentEvents::ENTITY_SPY_PRODUCT_ATTACHMENT_CREATE,
+            new ProductAttachmentStoragePublishListener(),
+            0,
+            null,
+            $this->getConfig()->getProductAttachmentEventQueueName(),
+        );
+    }
+
+    protected function addProductAttachmentPublishListener(EventCollectionInterface $eventCollection): void
+    {
+        $eventCollection->addListenerQueued(
+            ProductAttachmentEvents::PRODUCT_ABSTRACT_ATTACHMENT_PUBLISH,
             new ProductAttachmentStoragePublishListener(),
             0,
             null,
