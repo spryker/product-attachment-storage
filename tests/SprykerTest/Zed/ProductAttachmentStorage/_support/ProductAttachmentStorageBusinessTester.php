@@ -94,13 +94,6 @@ class ProductAttachmentStorageBusinessTester extends Actor
         return $productAttachmentEntity->getIdProductAttachment();
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param int $idProductAttachment
-     * @param int $order
-     *
-     * @return void
-     */
     public function haveProductAbstractAttachmentRelation(int $idProductAbstract, int $idProductAttachment, int $order = 0): void
     {
         $entity = new SpyProductAttachmentProductAbstract();
@@ -110,10 +103,6 @@ class ProductAttachmentStorageBusinessTester extends Actor
         $entity->save();
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param string $locale
-     */
     public function findProductAbstractAttachmentStorageByLocale(int $idProductAbstract, string $locale): ?SpyProductAbstractAttachmentStorage
     {
         return $this->getProductAbstractAttachmentStorageQuery()
