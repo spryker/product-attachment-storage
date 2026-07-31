@@ -21,6 +21,7 @@ class ProductAttachmentStoragePublishListener extends AbstractPlugin implements 
 {
     /**
      * @param array<\Generated\Shared\Transfer\EventEntityTransfer> $eventEntityTransfers
+     * @param string $eventName
      */
     public function handleBulk(array $eventEntityTransfers, $eventName): void
     {
