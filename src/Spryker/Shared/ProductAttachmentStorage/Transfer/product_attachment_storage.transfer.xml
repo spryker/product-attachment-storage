@@ -23,6 +23,7 @@
 
     <transfer name="ProductView">
         <property name="attachments" type="ProductAttachmentStorage[]" singular="attachment"/>
+        <property name="idProductAbstract" type="int"/>
     </transfer>
 
     <transfer name="ProductAttachmentStorageCriteria" strict="true">
